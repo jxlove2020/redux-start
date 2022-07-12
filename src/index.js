@@ -4,8 +4,11 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from './redux/store';
+import { addTodo } from './redux/actions';
 
 console.log(store)
+console.log(store.getState())
+store.dispatch(addTodo('책 읽기'))
 console.log(store.getState())
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
