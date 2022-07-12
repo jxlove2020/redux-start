@@ -6,10 +6,14 @@ import reportWebVitals from './reportWebVitals';
 import store from './redux/store';
 import { addTodo } from './redux/actions';
 
-console.log(store)
-console.log(store.getState())
+// 구독하게 되면 state값이 변경 될 때 마다 호출
+store.subscribe(() => {
+  console.log(store.getState())
+})
+
 store.dispatch(addTodo('책 읽기'))
-console.log(store.getState())
+store.dispatch(addTodo('캐치볼 하기'))
+store.dispatch(addTodo('줄넘기 하기'))
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
