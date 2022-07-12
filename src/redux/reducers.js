@@ -1,4 +1,4 @@
-import { ADD_TODO, COMPLETE_TODO } from './actions'
+import { ADD_TODO, COMPLETE_TODO, SHOW_ALL, SHOW_COMPLETE } from './actions'
 
 // 초기값 설정 다른 방법
 const initialState = { todos: [], filter: 'ALL' };
@@ -24,5 +24,18 @@ export function todoApp(previousState = initialState, action) {
     }
   }
 
+  if (action.type === SHOW_ALL) {
+    return {
+      ...previousState,
+      filter: 'ALL'
+    }
+  }
+
+  if (action.type === SHOW_COMPLETE) {
+    return {
+      ...previousState,
+      filter: 'COMPLETE'
+    }
+  }
   return previousState
 }
