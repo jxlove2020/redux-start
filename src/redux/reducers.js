@@ -10,7 +10,7 @@ export function todoApp(previousState = initialState, action) {
   // }
 
   if (action.type === ADD_TODO) {
-    return [...previousState, action.todo]
+    return [...previousState, { text: action.text, done: false }]
   }
 
   return previousState
