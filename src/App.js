@@ -3,7 +3,7 @@ import './App.css';
 import ReduxContext from './contexts/ReduxContext';
 import { addTodo } from './redux/actions';
 
-function App() {
+function useReduxState() {
   const store = useContext(ReduxContext)
   const [state, setState] = useState(store.getState())
   useEffect(() => {
@@ -12,6 +12,19 @@ function App() {
     })
     return () => { unsubscribe() }
   }, [store])
+
+  return state
+}
+
+function useReduxDispatch() {
+  const store = useContext(ReduxContext)
+  return store.dispatch
+}
+
+function App() {
+  const state = useReduxState()
+  const dispatch = useReduxDispatch()
+
   return (
     <div className="App">
       <div>{JSON.stringify(state)}</div>
@@ -20,7 +33,7 @@ function App() {
   );
 
   function click() {
-    store.dispatch(addTodo('할일'))
+    dispatch(addTodo('할일'))
   }
 }
 
