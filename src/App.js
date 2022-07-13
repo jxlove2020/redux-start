@@ -1,8 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import './App.css';
+import ReduxContext from './contexts/ReduxContext';
 import { addTodo } from './redux/actions';
 
-function App({ store }) {
+function App() {
+  const store = useContext(ReduxContext)
   const [state, setState] = useState(store.getState())
   useEffect(() => {
     const unsubscribe = store.subscribe(() => {

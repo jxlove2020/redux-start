@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from './redux/store';
+import ReduxContext from './contexts/ReduxContext';
 // import { addTodo, completeTodo, showAll, showComplete } from './redux/actions';
 
 // 구독하게 되면 state값이 변경 될 때(dispatch 될 때) 마다 호출 , return 값이 unsubscribe
@@ -19,8 +20,10 @@ import store from './redux/store';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App store={store} />
-  </React.StrictMode>
+    <ReduxContext.Provider value={store}>
+      <App />
+    </ReduxContext.Provider>
+  </React.StrictMode >
 );
 
 // If you want to start measuring performance in your app, pass a function
