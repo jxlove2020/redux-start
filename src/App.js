@@ -1,16 +1,17 @@
 import './App.css';
-import useReduxState from './hooks/useReduxState';
 import useReduxDispatch from './hooks/useReduxDispatch';
 import { addTodo } from './redux/actions';
+import TodoList from './components/TodoList';
 
 function App() {
-  const state = useReduxState()
   const dispatch = useReduxDispatch()
 
   return (
     <div className="App">
-      <div>{JSON.stringify(state)}</div>
+      <div><TodoList /></div>
       <button onClick={click}>추가</button>
+
+      {/* <TodoForm /> */}
     </div>
   );
 
