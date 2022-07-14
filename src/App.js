@@ -7,8 +7,10 @@ function App() {
 
   return (
     <div className="App">
-      <div><TodoList /></div>
-      <TodoForm />
+      <div>
+        <TodoList />
+        <TodoForm />
+      </div>
     </div>
   );
 
